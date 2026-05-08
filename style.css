@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2832') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(44,62,80,0.9), rgba(52,152,219,0.8));
+  z-index: -1;
+}
+
+.hidden { display: none!important; }
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo { font-size: 1.8rem; font-weight: 700; }
+.logo span { color: #3498db; }
+
+.nav-links button {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.nav-links button:hover { background: #3498db; border-color: #3498db; }
+
+#welcomeUser { margin-right: 1rem; font-weight: 600; }
+
+.page {
+  padding: 2rem 5%;
+  min-height: 80vh;
+}
+
+.page-container {
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.auth-container {
+  max-width: 450px;
+  margin: 4rem auto;
+  padding: 2.5rem;
+}
+
+.tabs { display: flex; margin-bottom: 1.5rem; }
+.tab {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tab.active { background: #3498db; }
+.tab:first-child { border-radius: 8px 0 0 8px; }
+.tab:last-child { border-radius: 0 8px 8px 0; }
+
+.auth-form input,.auth-form select,.auth-form button,
+#jobForm input, #jobForm textarea, #jobForm select,
+#contactForm input, #contactForm textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.6rem 0;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  font-size: 1rem;
+}
+
+.auth-form input::placeholder, #jobForm input::placeholder,
+#jobForm textarea::placeholder, #contactForm input::placeholder,
+#contactForm textarea::placeholder { color: rgba(255,255,255,0.7); }
+
+button {
+  background: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+button:hover { background: #2980b9; transform: translateY(-2px); }
+button:disabled { background: #7f8c8d; cursor: not-allowed; transform: none; }
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+.hero button { margin-top: 1.5rem; padding: 1rem 2.5rem; font-size: 1.1rem; border-radius: 50px; }
+
+h2 { margin-bottom: 1.5rem; font-size: 2rem; }
+
+.job-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.job-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.job-card:hover { 
+  transform: translateY(-5px); 
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.job-card h3 { margin-bottom: 0.5rem; }
+.job-card.company { opacity: 0.8; margin-bottom: 0.8rem; }
+.category { 
+  display: inline-block; 
+  background: #3498db; 
+  padding: 0.3rem 0.8rem; 
+  border-radius: 20px; 
+  font-size: 0.8rem; 
+}
+
+.skill-tag {
+  display: inline-block;
+  background: rgba(46, 204, 113, 0.3);
+  border: 1px solid #2ecc71;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.filters input,.filters select {
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  padding: 2.5rem;
+  max-width: 700px;
+  width: 90%;
+  max-height: 85vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+}
+
+.stat-card h3 { font-size: 2.5rem; color: #3498db; }
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.add-skill {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.add-skill input { flex: 1; }
+
+.employer-job {
+  background: rgba(255,255,255,0.1);
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-actions button {
+  margin-left: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}
+
+.edit-btn { background: #f39c12; }
+.delete-btn { background: #e74c3c; }
+.view-btn { background: #27ae60; }
+
+#skillMatchInfo {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.match-success { background: rgba(46, 204, 113, 0.2); border: 1px solid #2ecc71; }
+.match-fail { background: rgba(231, 76, 60, 0.2); border: 1px solid #e74c3c; }
+
+footer {
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+
+select option { background: #2c3e50; }

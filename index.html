@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JobPortal Pro - Sqrock IT</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+  <button onclick="localStorage.clear(); alert('Data cleared! Now refresh the page'); location.reload();" style="position:fixed;top:10px;left:10px;z-index:9999;background:red;color:white;padding:10px;border:none;border-radius:5px;cursor:pointer">RESET DATA</button>
+  <div class="bg-overlay"></div>
+  <div class="bg-overlay"></div>
+  
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">JobPortal<span>Pro</span></div>
+    <div class="nav-links">
+      <span id="welcomeUser"></span>
+      <button id="homeBtn">Home</button>
+      <button id="jobsBtn">Jobs</button>
+      <button id="aboutBtn">About</button>
+      <button id="contactBtn">Contact</button>
+      <button id="profileBtn" class="hidden">Profile</button>
+      <button id="dashboardBtn" class="hidden">Dashboard</button>
+      <button id="authBtn">Login</button>
+    </div>
+  </nav>
+
+  <!-- Auth Section -->
+  <section id="authSection" class="page">
+    <div class="auth-container glass">
+      <div class="tabs">
+        <button class="tab active" data-tab="login">Login</button>
+        <button class="tab" data-tab="signup">Signup</button>
+      </div>
+      
+      <form id="loginForm" class="auth-form">
+        <h2>Welcome Back</h2>
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+
+      <form id="signupForm" class="auth-form hidden">
+        <h2>Create Account</h2>
+        <input type="text" id="signupName" placeholder="Full Name" required>
+        <input type="email" id="signupEmail" placeholder="Email" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <select id="signupRole" required>
+          <option value="">Select Role</option>
+          <option value="Candidate">Candidate</option>
+          <option value="Employer">Employer</option>
+        </select>
+        <button type="submit">Signup</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Home Section -->
+  <section id="homeSection" class="page hidden">
+    <div class="hero glass">
+      <h1>Find Your Dream Job Today</h1>
+      <p>Match your skills with top companies hiring now</p>
+      <button id="browseJobsBtn">Browse Jobs</button>
+    </div>
+    <div class="featured-jobs">
+      <h2>Featured Jobs</h2>
+      <div id="featuredJobsList" class="job-grid"></div>
+    </div>
+  </section>
+
+  <!-- Job Listing Section -->
+  <section id="jobsSection" class="page hidden">
+    <div class="glass page-container">
+      <h2>All Jobs</h2>
+      <div class="filters">
+        <input type="text" id="searchJob" placeholder="Search by title...">
+        <select id="filterCategory">
+          <option value="">All Categories</option>
+          <option value="Frontend">Frontend Development</option>
+          <option value="Backend">Backend Development</option>
+          <option value="Fullstack">Full Stack</option>
+          <option value="Testing">Software Testing</option>
+          <option value="Design">UI/UX Design</option>
+          <option value="Marketing">Digital Marketing</option>
+          <option value="Finance">Finance</option>
+        </select>
+      </div>
+      <div id="allJobsList" class="job-grid"></div>
+    </div>
+  </section>
+
+  <!-- About Page -->
+  <section id="aboutSection" class="page hidden">
+    <div class="glass page-container">
+      <h2>About JobPortal Pro</h2>
+      <p>We connect talented candidates with innovative companies. Our skill-based matching ensures you only see jobs you're qualified for.</p>
+      <div class="stats-grid">
+        <div class="stat-card"><h3>500+</h3><p>Jobs Posted</p></div>
+        <div class="stat-card"><h3>200+</h3><p>Companies</p></div>
+        <div class="stat-card"><h3>10k+</h3><p>Candidates</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Page -->
+  <section id="contactSection" class="page hidden">
+    <div class="glass page-container">
+      <h2>Contact Us</h2>
+      <form id="contactForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p style="margin-top:1rem">Email: support@jobportal.com | Sqrock IT Solutions, Mumbai</p>
+    </div>
+  </section>
+
+  <!-- Profile Page -->
+  <section id="profileSection" class="page hidden">
+    <div class="glass page-container">
+      <h2>My Profile</h2>
+      <div id="profileInfo"></div>
+      <h3>My Skills</h3>
+      <div id="skillsList" class="skills-container"></div>
+      <div class="add-skill">
+        <input type="text" id="skillInput" placeholder="Add skill e.g. React, Python">
+        <button id="addSkillBtn">Add Skill</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Job Details Modal -->
+  <div id="jobModal" class="modal hidden">
+    <div class="modal-content glass">
+      <span class="close">&times;</span>
+      <div id="jobDetails"></div>
+      <div id="skillMatchInfo"></div>
+      <button id="applyJobBtn">Apply Now</button>
+    </div>
+  </div>
+
+  <!-- Dashboard Section -->
+  <section id="dashboardSection" class="page hidden">
+    <div class="glass page-container">
+      <h2 id="dashboardTitle">Dashboard</h2>
+      
+      <div id="candidateDash" class="hidden">
+        <h3>Applied Jobs</h3>
+        <div id="appliedJobsList"></div>
+      </div>
+
+      <div id="employerDash" class="hidden">
+        <button id="addJobBtn">+ Add New Job</button>
+        <h3>Your Posted Jobs</h3>
+        <div id="employerJobsList"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Job Modal -->
+  <div id="addJobModal" class="modal hidden">
+    <div class="modal-content glass">
+      <span class="close">&times;</span>
+      <h2 id="jobFormTitle">Add New Job</h2>
+      <form id="jobForm">
+        <input type="hidden" id="jobId">
+        <input type="text" id="jobTitle" placeholder="Job Title" required>
+        <input type="text" id="companyName" placeholder="Company Name" required>
+        <select id="jobCategory" required>
+          <option value="">Select Category</option>
+          <option value="Frontend">Frontend Development</option>
+          <option value="Backend">Backend Development</option>
+          <option value="Fullstack">Full Stack</option>
+          <option value="Testing">Software Testing</option>
+          <option value="Design">UI/UX Design</option>
+          <option value="Marketing">Digital Marketing</option>
+          <option value="Finance">Finance</option>
+        </select>
+        <input type="text" id="jobSkills" placeholder="Required Skills: React, Node.js, MongoDB" required>
+        <textarea id="jobDesc" placeholder="Job Description" required></textarea>
+        <select id="jobStatus" required>
+          <option value="Active">Active</option>
+          <option value="Closed">Closed</option>
+        </select>
+        <button type="submit">Save Job</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Applicants Modal -->
+  <div id="applicantsModal" class="modal hidden">
+    <div class="modal-content glass">
+      <span class="close">&times;</span>
+      <h2>Applicants</h2>
+      <div id="applicantsList"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 JobPortal Pro - Sqrock IT Solutions</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
