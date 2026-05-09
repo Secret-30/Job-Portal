@@ -311,3 +311,49 @@ select option { background: #2c3e50; }
 #resetBtn:hover {
   background: #cc0000;
 }
+/* Add these to your existing style.css */
+
+/* Password eye icon */
+.password-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrap input {
+  width: 100%;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+
+.password-wrap i {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
+
+.password-wrap i:hover {
+  color: #000;
+}
+
+/* Reset button in navbar */
+#resetBtn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 5px;
+  font-weight: 600;
+}
+
+#resetBtn:hover {
+  background: #cc0000;
+}
+
+.hidden {
+  display: none !important;
+}
