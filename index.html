@@ -7,7 +7,6 @@
   <title>JobPortal Pro - Sqrock IT</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
     <body>
   <button onclick="localStorage.clear(); alert('Data cleared! Now refresh the page'); location.reload();" style="position:fixed;top:10px;left:10px;z-index:9999;background:red;color:white;padding:10px;border:none;border-radius:5px;cursor:pointer">RESET DATA</button>
   <div class="bg-overlay"></div>
@@ -47,7 +46,10 @@
         <h2>Create Account</h2>
         <input type="text" id="signupName" placeholder="Full Name" required>
         <input type="email" id="signupEmail" placeholder="Email" required>
-        <input type="password" id="signupPassword" placeholder="Password" required>
+               <div class="password-wrap">
+          <input type="password" id="signupPassword" placeholder="Password" required>
+          <i class="fa-solid fa-eye" id="toggleSignupPassword"></i>
+        </div>
         <select id="signupRole" required>
           <option value="">Select Role</option>
           <option value="Candidate">Candidate</option>
