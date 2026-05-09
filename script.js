@@ -1,3 +1,43 @@
+// Password Toggle Logic
+document.addEventListener('DOMContentLoaded', () => {
+  // Toggle for Login
+  const toggleLogin = document.querySelector('#toggleLoginPassword');
+  const loginPass = document.querySelector('#loginPassword');
+  if(toggleLogin && loginPass) {
+    toggleLogin.addEventListener('click', () => {
+      const type = loginPass.type === 'password' ? 'text' : 'password';
+      loginPass.type = type;
+      toggleLogin.classList.toggle('fa-eye');
+      toggleLogin.classList.toggle('fa-eye-slash');
+    });
+  }
+
+  // Toggle for Signup  
+  const toggleSignup = document.querySelector('#toggleSignupPassword');
+  const signupPass = document.querySelector('#signupPassword');
+  if(toggleSignup && signupPass) {
+    toggleSignup.addEventListener('click', () => {
+      const type = signupPass.type === 'password' ? 'text' : 'password';
+      signupPass.type = type;
+      toggleSignup.classList.toggle('fa-eye');
+      toggleSignup.classList.toggle('fa-eye-slash');
+    });
+  }
+
+  // Reset Data Button
+  const resetBtn = document.getElementById('resetBtn');
+  if(resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      if(confirm('Are you sure? This will delete all local data!')) {
+        localStorage.clear(); 
+        alert('Data cleared! Refreshing page...'); 
+        location.reload();
+      }
+    });
+  }
+});
+
+// Keep all your existing JS code below this
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let jobs = JSON.parse(localStorage.getItem('jobs')) || [];
 let applications = JSON.parse(localStorage.getItem('applications')) || [];
