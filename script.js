@@ -398,3 +398,8 @@ if (currentUser) {
   showPage('authSection');
 }
 renderFeaturedJobs();
+document.getElementById('resetBtn').addEventListener('click', () => {
+  localStorage.clear(); 
+  alert('Data cleared! Now refresh the page'); 
+  location.reload();
+});
