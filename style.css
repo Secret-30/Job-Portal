@@ -288,3 +288,14 @@ footer {
 }
 
 select option { background: #2c3e50; }
+.password-wrap {
+  position: relative;
+}
+.password-wrap i {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+}
