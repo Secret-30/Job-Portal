@@ -205,7 +205,29 @@
   <footer>
     <p>© 2026 JobPortal Pro - Sqrock IT Solutions</p>
   </footer>
+  <script>
+    // Toggle for Login
+    const toggleLogin = document.querySelector('#toggleLoginPassword');
+    const loginPass = document.querySelector('#loginPassword');
+    if(toggleLogin) {
+      toggleLogin.addEventListener('click', () => {
+        const type = loginPass.type === 'password' ? 'text' : 'password';
+        loginPass.type = type;
+        toggleLogin.classList.toggle('fa-eye-slash');
+      });
+    }
 
+    // Toggle for Signup  
+    const toggleSignup = document.querySelector('#toggleSignupPassword');
+    const signupPass = document.querySelector('#signupPassword');
+    if(toggleSignup) {
+      toggleSignup.addEventListener('click', () => {
+        const type = signupPass.type === 'password' ? 'text' : 'password';
+        signupPass.type = type;
+        toggleSignup.classList.toggle('fa-eye-slash');
+      });
+    }
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
